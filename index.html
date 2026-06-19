@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAB BERMAZMUR - Heavenly Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #ffffff;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        /* --- 1. GAMBAR LATAR BELAKANG AWAN --- */
+        .heaven-bg-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Dua baris ini gunanya untuk mengunci posisi tepat di tengah layar */
+        width: 70%; /* Ukuran besar proporsional di tengah, bisa diubah sesuai selera (misal 50% atau 70%) */
+        height: auto;
+        aspect-ratio: 16/9; /* Menjaga aspek rasio logo landscape agar tidak gepeng */
+        background-image: url('logoo.png'); /* Sudah mengarah ke file logoo.png kamu */
+        background-size: contain; /* Menggunakan contain agar logo tidak terpotong tepi-tepinya */
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: opacity(15%) blur(1px); /* opacity(15%) membuat sangat samar, blur(1px) memberi efek buram lembut */
+        z-index: 1; /* Tetap berada di paling belakang teks */
+        pointer-events: none;
+        }
+        /* --- 2. FOTO UTAMA DI TENGAH --- */
+        .main-photo-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 55%; 
+            max-width: 550px;
+            height: auto;
+            aspect-ratio: 4/3; 
+            background-image: url(''); 
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            filter: opacity(20%);
+            z-index: 2;
+        }
+
+        /* --- 3. LOGO PERSEGI PANJANG DI POJOK KANAN ATAS (DISESUAIKAN AGAR TIDAK TERPOTONG) --- */
+        .logo-corner {
+            position: fixed;
+            top: 35px;
+            right: 35px;
+            width: 180px; /* Diperlebar agar memuat teks logo */
+            height: 65px;  /* Tinggi disesuaikan */
+            background-image: url('logoo1.Png'); /* GANTI DENGAN NAMA FILE LOGO KAMU */
+            background-size: contain; /* Menggunakan contain agar logo pas dan tidak terpotong */
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 0px;
+            z-index: 10; 
+        }
+
+        /* Overlay Gradasi Lembut --- */
+        .overlay-soft {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.7) 100%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* --- 4. ROLLING CREDITS TEXT --- */
+        .credits-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 4;
+            display: flex;
+            justify-content: center;
+        }
+
+        .credits-scroll {
+            position: absolute;
+            width: 80%;
+            max-width: 850px;
+            text-align: center;
+            top: 100%;
+            animation: rollCredits 85s linear infinite; 
+        }
+
+        /* --- STYLING TEKS TEBAL & KONTRAS --- */
+        .main-title {
+            font-size: 3.8rem;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            color: #000000;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            color: #222222;
+            font-weight: 800;
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            color: #000000;
+            margin-top: 70px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .sub-section-title {
+            font-size: 1.3rem;
+            color: #111111;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .role-group {
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #000000;
+        }
+
+        .role-name {
+            color: #000000;
+            font-weight: 900;
+        }
+
+        .name-list {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .footer-space {
+            height: 450px; 
+        }
+
+        @keyframes rollCredits {
+            0% { top: 100%; }
+            100% { top: -850%; } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heaven-bg-image"></div>
+
+    <div class="main-photo-bg"></div>
+
+    <div class="logo-corner"></div>
+
+    <div class="overlay-soft"></div>
+
+    <div class="credits-container">
+        <div class="credits-scroll">
+            
+            <h1 class="main-title">PAB BERMAZMUR</h1>
+            <p class="subtitle">Malam Pujian & Penyembahan</p>
+
+            <div class="section-title">Susunan Panitia</div>
+            <div class="role-group">
+                <p><span class="role-name">Penasehat:</span> Pdt W. Purba</p>
+                <p><span class="role-name">Pelindung:</span> Dewan Sekolah PAB</p>
+                <p><span class="role-name">Penanggung Jawab:</span> Jamin Siregar (Kepala SMA PAB) & David Samuel Karunianto (Kepala SMP PAB)</p>
+                <p><span class="role-name">Ketua Pelaksana:</span> Ryan Uniana</p>
+                <p><span class="role-name">Wakil Ketua Pelaksana:</span> Meitiko B. Muskita</p>
+                <p><span class="role-name">Sekretaris:</span> Sylvia George, Dewi Puji Lestari, Elovany Lingga</p>
+                <p><span class="role-name">Bendahara:</span> Erlis Sihotang</p>
+                <p><span class="role-name">Dana:</span> Tarida Saragi, Andy Kemit, Herlina Simbolon</p>
+                <p><span class="role-name">Acara:</span> Risma Manurung & Togi Marietta Marpaung</p>
+                <p><span class="role-name">Lagu & Musik:</span> Simson Pangaribuan & Michael Londah</p>
+                <p><span class="role-name">Stage Manager:</span> Pdtm. John Prima A. Purba</p>
+                <p><span class="role-name">Undangan / Tiket:</span> Sem Sahetapy</p>
+                <p><span class="role-name">Sound System:</span> Ryan Uniana & SoundMan</p>
+                <p><span class="role-name">Multimedia & Dokumentasi:</span> Mario B. Laoh & Cindy A. Djagia</p>
+                <p><span class="role-name">Kostum:</span> Hayana Marbun</p>
+                <p><span class="role-name">Dekorasi:</span> Rita Panggabean, Jecklyn Sahensolar</p>
+                <p><span class="role-name">Penerima Tamu:</span> Tyara Gisella Renata & Lungguk Napitupulu</p>
+                <p><span class="role-name">Konsumsi:</span> Serpi Sihombing & Dumaria Simanjuntak</p>
+                <p><span class="role-name">Keamanan:</span> Hotber Situmeang</p>
+                <p><span class="role-name">Pianist:</span> Michael N. E. Londah</p>
+            </div>
+
+            <div class="section-title">Duet</div>
+            <div class="name-list">
+                Togi Marietta Marpaung, S.Pd <br>
+                Ryan Uniana S.pd.MAEd
+            </div>
+
+            <div class="section-title">Children Choir</div>
+            
+            <div class="sub-section-title">Sopran</div>
+            <div class="name-list">
+                Zahra Alvina • Callysta Nathania Andriana • Divsha Tabitha Sitorus • Echson Limbong <br>
+                Clara Aiko Mustika • Kezia Amaris Aneke Hia • Joaquina Hillary Purba • Aurora Putri Calista Sitinjak <br>
+                Sheeva Ariana Pardede • Mayviella Amazia Tampubolon • Deovolent Querubien Lomboan <br>
+                Daphne Jaedyn Zyana Kastanya • Zaneta Orlin Filicia Naiborhu • Grace Praiselia R Agoes Syukur
+            </div>
+
+            <div class="sub-section-title">Alto</div>
+            <div class="name-list">
+                Morgan Samuel Sitorus • Alvino Sebastian Padang • Alfrado Christiano Sianturi <br>
+                Marchel Abednego Ginting • Arianto Reinhard Sihotang • Anastasia Mercy Angela <br>
+                Lucas H Sabbathy Pandoy • Feivel Lauwrance C Laoh • Eliasna Br Sembiring <br>
+                Josephine Sabatina Wairata • Jul One Sartika Lombu
+            </div>
+
+            <div class="sub-section-title">Mezzo</div>
+            <div class="name-list">
+                Balthasar Asher Meshach S • Brilliant Maxwell Orlando • Derrel Walter Purba <br>
+                Denzell Ivander Z Pohan • Deby Albina Br Sembiring • Matthew Hamonangan Girsang
+            </div>
+
+            <div class="section-title">Youth Choir</div>
+            
+            <div class="sub-section-title">Sopran 1</div>
+            <div class="name-list">
+                Shiny Melody Adeline Laoh • Grace Aprilia Christiani Meliala • Wayne Getsya Sabatina <br>
+                Michelle Amelia Isakh • Regina De Quirino Hardi • Sonya Natalin Gultom • Togi Marietta Marpaung, S.Pd.
+            </div>
+
+            <div class="sub-section-title">Sopran 2</div>
+            <div class="name-list">
+                Brigitania Sari Rambe • Laura Cyndiana Simare Mare • Misyel Violin Sinaga <br>
+                Caroline Annatasia Simarmata • Sheamashera Johanna E Sagala • Ezechelle Sarah Christabel <br>
+                Shallomita Livi • Elisa Patricia Padang • Sherly Naya Maydina • Valerie Zara <br>
+                Angel Michlle Atihuta • Jessy Margaretha Ohello • Pesta Sinurat
+            </div>
+
+            <div class="sub-section-title">Alto 1</div>
+            <div class="name-list">
+                Chiara Fiorenza Nathania Br Pandia • Sheyna Lovely Angkouw • Stefani Novelia Putri <br>
+                Daphne Ambrose Rhemrev • Heidie Octavianne • Winda Ester Margareta • Risma Uli Manurung
+            </div>
+
+            <div class="sub-section-title">Alto 2</div>
+            <div class="name-list">
+                Marcia Priscilla Sarah Naibaho • Angelin Lidya Caesarini Tobing • Irene Citra <br>
+                Michelle Quenisha Yokhebed Tamba • Ida Grecia Sianturi
+            </div>
+
+            <div class="sub-section-title">Tenor 1</div>
+            <div class="name-list">
+                Wilfred Machiko Purba • Claudiano Favian Wesley P • Avrido Evel T Lumban Toruan <br>
+                Besli Hatorangan Silaen • Jericho Putra P Ginting • Moreno Stefanus Sitorus <br>
+                Salvador Junior Xavier • Yehezkiel Putra Stefano
+            </div>
+
+            <div class="sub-section-title">Tenor 2</div>
+            <div class="name-list">
+                Reinhard Lucky Leatemia • Kornelius Waruwu • Natanael Fredrick Gultom <br>
+                Rafael Forte Filius Ginting • Riman Upa • Sem Sahetapi, S.Pd.
+            </div>
+
+            <div class="sub-section-title">Bass 1</div>
+            <div class="name-list">
+                Ezekiah Theodore Kistrianto • Marvellous Fh Girsang <br>
+                Darren Rifky Virgiano • Jona David Wijaksono Simanjuntak
+            </div>
+
+            <div class="sub-section-title">Bass 2</div>
+            <div class="name-list">
+                Neil Nathaniel Irawan • Alfredo Aldo Dasilva • Michael Lawrence Fobia <br>
+                Mishael Royce Junior Lohonauman • Juan Felix Sahetapy • John Prima A. Purba, S.Fil.
+            </div>
+
+            <div class="section-title">Teacher Choir</div>
+            
+            <div class="sub-section-title">Sopran 1</div>
+            <div class="name-list">
+                Togi M. Marpaung, S.Pd. • Erlis Sihotang A.md • Tyara Gisella Renata, S.Pd
+            </div>
+
+            <div class="sub-section-title">Sopran 2</div>
+            <div class="name-list">
+                Herlina Ch. Simbolon, S1.Ek. • Lasma U. Simbolon, S.Si. • Tarida Saragi, M.Pd. <br>
+                Hayana Marbun, S.Pd. • Serpi Sihombing, S.Pd. • Jojor Sihombing, S.Pd. • Dewi Puji Lestari, S.Pd.
+            </div>
+
+            <div class="sub-section-title">Alto</div>
+            <div class="name-list">
+                Elovany Lingga, S.S. • Cindy Angela, S.Kom. • Asima Hutauruk, S.Pd. <br>
+                Dumaria Simanjuntak, S.Pd. • Rita Panggabean, S.Pd. • Meitiko B Muskita, S. Pd, M.M. <br>
+                Claudia F Sahetapy, S.E. • Risma Uli Manurung, S.Pd.
+            </div>
+
+            <div class="sub-section-title">Tenor 1</div>
+            <div class="name-list">
+                Lungguk Napitupulu, S.Pd. • Ryan Uniana S.pd.MAEd • Andi Pranata Kemit, S.Pd
+            </div>
+
+            <div class="sub-section-title">Tenor 2</div>
+            <div class="name-list">
+                David Samuel Karunianto, S.Pd., M.M. • Sem Sahetapy, S.Pd
+            </div>
+
+            <div class="sub-section-title">Bass</div>
+            <div class="name-list">
+                Ir. Jamin Siregar, M.M., M.A.Ed. • Hotber Situmeang, S.Pd. • B Simson Pangaribuan, S.Pd., M.M.
+            </div>
+
+            <div class="section-title">Teacher Vocal Group</div>
+            <div class="name-list">
+                Ryan Uniana S.pd.MAEd • Brian Rhebok • Sem Sahetapy, S.Pd • B Simson Pangaribuan, S.Pd., M.M.
+            </div>
+
+            <div class="section-title">Workshop Vocal Group</div>
+            <div class="name-list">
+                Sir Simson (Bass) • Sir Michael Londah (Pianist) • Regina (Soprano¹) • Sonya (Soprano¹) • Miss Togi <br>
+                Maam Pesta (Soprano²) • Valerie (Soprano²) • Michelle A. (Soprano²) • Maam Risma (Alto¹) <br>
+                Michelle T. (Alto²) • Marcia (Alto¹) • Sir Sem (Tenor¹) • Natanael (Tenor²) • Mishael (Bass)
+            </div>
+
+            <div class="section-title">Anggota Ensembel</div>
+            <div class="name-list" style="margin-bottom: 40px;">
+                Mishael Royce Junior Lohonauman • Elisa Patricia Padang • Claudiano Favian Wesley Padang <br>
+                Mayviella Amazia Tampubolon • Kayla Nevaeh Pelealu • Abram Gabriel Billion Tampubolon <br>
+                Tristan Simatupang • Billzio Situmorang
+            </div>
+            <p><span class="role-name">Pelatih Ensembel:</span> Rolando Simatupang</p>
+
+            <div class="section-title" style="border: none; margin-top: 100px; font-size: 1.6rem; color: #000000;">
+                "Sebab bagi Allah tidak ada yang mustahil."
+            </div>
+
+            <div class="footer-space"></div>
+        </div>
+    </div>
+
+</body>
+</html>
